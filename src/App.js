@@ -10,7 +10,7 @@ const componentData = [
     name: 'ColorInput',
     category: 'Form',
     description: 'Color input allows the user to select a color, either by using a visual color picker or by entering the HEX color code manually into the text field',
-    image: './assets/images/colorinput-preview.png', // Локальна картинка
+    image: `${process.env.PUBLIC_URL}/assets/images/colorinput-preview.png`,
     code: `import React, { useState } from 'react';
 
 const ColorInput = ({ 
@@ -51,7 +51,7 @@ export default ColorInput;`
     name: 'Button',
     category: 'Form',
     description: 'A versatile button component that supports different sizes, variants, and states',
-    image: './assets/images/button-preview.png', // Локальна картинка
+    image: `${process.env.PUBLIC_URL}/assets/images/button-preview.png`,
     code: `import React from 'react';
 
 const Button = ({ 
