@@ -2,126 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './assets/styles.css';
 import TableOfContents from './components/TableOfContents';
 import ComponentSection from './components/ComponentSection';
-
-// Add your components here - example with ColorInput
-const componentData = [
-  {
-    id: 'colorinput',
-    name: 'ColorInput',
-    category: 'Form',
-    description: 'Color input allows the user to select a color, either by using a visual color picker or by entering the HEX color code manually into the text field',
-    sections: [
-      {
-        id: 'basic',
-        title: 'Basic Usage',
-        description: 'Simple example of using ColorInput with basic parameters',
-        code: `import React, { useState } from 'react';
-
-const ColorInput = ({ 
-  size = 'medium', 
-  value = '#3899EC', 
-  onChange, 
-  placeholder = 'Enter color...' 
-}) => {
-  const [color, setColor] = useState(value);
-  
-  const handleChange = (e) => {
-    setColor(e.target.value);
-    onChange?.(e.target.value);
-  };
-  
-  return (
-    <div className={\`color-input \${size}\`}>
-      <input 
-        type="color" 
-        value={color} 
-        onChange={handleChange} 
-      />
-      <input 
-        type="text" 
-        value={color} 
-        onChange={handleChange}
-        placeholder={placeholder}
-      />
-    </div>
-  );
-};
-
-export default ColorInput;`,
-        image: `${process.env.PUBLIC_URL}/assets/images/colorinput-preview.png`
-      },
-      {
-        id: 'sizes',
-        title: 'Different Sizes',
-        description: 'ColorInput supports three sizes: small, medium and large',
-        code: `// Small size
-<ColorInput size="small" value="#ff6b6b" />
-
-// Medium size (default)
-<ColorInput size="medium" value="#4ecdc4" />
-
-// Large size
-<ColorInput size="large" value="#45b7d1" />`,
-        image: `${process.env.PUBLIC_URL}/assets/images/colorinput-sizes.png`
-      }
-    ]
-  },
-  // Add more components here...
-  {
-    id: 'button',
-    name: 'Button',
-    category: 'Form',
-    description: 'A versatile button component that supports different sizes, variants, and states',
-    sections: [
-      {
-        id: 'variants',
-        title: 'Button Variants',
-        description: 'Button supports different variants: primary, secondary, success, warning, danger',
-        code: `import React from 'react';
-
-const Button = ({ 
-  children,
-  variant = 'primary', 
-  size = 'medium',
-  disabled = false,
-  onClick 
-}) => {
-  return (
-    <button 
-      className={\`btn btn-\${variant} btn-\${size}\`}
-      disabled={disabled}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-};
-
-export default Button;`,
-        image: `${process.env.PUBLIC_URL}/assets/images/button-preview.png`
-      },
-      {
-        id: 'states',
-        title: 'Button States',
-        description: 'Demonstration of different button states: normal, hover, active, disabled',
-        code: `// Normal button
-<Button variant="primary">Click me</Button>
-
-// Disabled button
-<Button variant="primary" disabled>Disabled</Button>
-
-// Button with event handler
-<Button 
-  variant="success" 
-  onClick={() => alert('Button clicked!')}
->
-  With Event
-</Button>`,
-        image: `${process.env.PUBLIC_URL}/assets/images/button-states.png`
-      }
-    ]
-  }
-];
+import { componentData } from './data';
 
 // Group components by category
 const groupedComponents = componentData.reduce((acc, component) => {
@@ -280,7 +161,6 @@ function App() {
         <h1>Component Dashboard</h1>
         <div className="header-info">
           <span className="component-count">{componentData.length} components</span>
-          <span className="version">v1.0.0</span>
           <div className="theme-controls">
             {!isAutoTheme && (
               <button
