@@ -1,6 +1,6 @@
 export const segmentedToggleAlignmentData = {
   id: 'segmentedToggleAlignment',
-  name: 'SegmentedToggleAlignment',
+  name: 'Segmented Toggle Alignment',
   category: 'Form',
   description: 'SegmentedToggleAlignment allows the user to select alignment options through a segmented toggle interface with visual alignment controls',
   sections: [
