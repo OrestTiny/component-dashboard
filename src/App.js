@@ -3,15 +3,19 @@ import './assets/styles.css';
 import TableOfContents from './components/TableOfContents';
 import ComponentSection from './components/ComponentSection';
 
-// Додайте тут ваші компоненти - приклад з ColorInput
+// Add your components here - example with ColorInput
 const componentData = [
   {
     id: 'colorinput',
     name: 'ColorInput',
     category: 'Form',
     description: 'Color input allows the user to select a color, either by using a visual color picker or by entering the HEX color code manually into the text field',
-    image: `${process.env.PUBLIC_URL}/assets/images/colorinput-preview.png`,
-    code: `import React, { useState } from 'react';
+    sections: [
+      {
+        id: 'basic',
+        title: 'Basic Usage',
+        description: 'Simple example of using ColorInput with basic parameters',
+        code: `import React, { useState } from 'react';
 
 const ColorInput = ({ 
   size = 'medium', 
@@ -43,16 +47,37 @@ const ColorInput = ({
   );
 };
 
-export default ColorInput;`
+export default ColorInput;`,
+        image: `${process.env.PUBLIC_URL}/assets/images/colorinput-preview.png`
+      },
+      {
+        id: 'sizes',
+        title: 'Different Sizes',
+        description: 'ColorInput supports three sizes: small, medium and large',
+        code: `// Small size
+<ColorInput size="small" value="#ff6b6b" />
+
+// Medium size (default)
+<ColorInput size="medium" value="#4ecdc4" />
+
+// Large size
+<ColorInput size="large" value="#45b7d1" />`,
+        image: `${process.env.PUBLIC_URL}/assets/images/colorinput-sizes.png`
+      }
+    ]
   },
-  // Додайте тут більше компонентів...
+  // Add more components here...
   {
     id: 'button',
     name: 'Button',
     category: 'Form',
     description: 'A versatile button component that supports different sizes, variants, and states',
-    image: `${process.env.PUBLIC_URL}/assets/images/button-preview.png`,
-    code: `import React from 'react';
+    sections: [
+      {
+        id: 'variants',
+        title: 'Button Variants',
+        description: 'Button supports different variants: primary, secondary, success, warning, danger',
+        code: `import React from 'react';
 
 const Button = ({ 
   children,
@@ -72,11 +97,33 @@ const Button = ({
   );
 };
 
-export default Button;`
+export default Button;`,
+        image: `${process.env.PUBLIC_URL}/assets/images/button-preview.png`
+      },
+      {
+        id: 'states',
+        title: 'Button States',
+        description: 'Demonstration of different button states: normal, hover, active, disabled',
+        code: `// Normal button
+<Button variant="primary">Click me</Button>
+
+// Disabled button
+<Button variant="primary" disabled>Disabled</Button>
+
+// Button with event handler
+<Button 
+  variant="success" 
+  onClick={() => alert('Button clicked!')}
+>
+  With Event
+</Button>`,
+        image: `${process.env.PUBLIC_URL}/assets/images/button-states.png`
+      }
+    ]
   }
 ];
 
-// Групуємо компоненти за категоріями
+// Group components by category
 const groupedComponents = componentData.reduce((acc, component) => {
   if (!acc[component.category]) {
     acc[component.category] = [];
@@ -91,10 +138,10 @@ function App() {
   const [isAutoTheme, setIsAutoTheme] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Функція для визначення теми за часом
+  // Function to determine theme based on time
   const getThemeByTime = () => {
     const hour = new Date().getHours();
-    // Темна тема з 20:00 до 6:00
+    // Dark theme from 20:00 to 6:00
     return (hour >= 20 || hour < 6) ? 'dark' : 'light';
   };
 
@@ -104,33 +151,33 @@ function App() {
     const savedAutoMode = localStorage.getItem('autoTheme');
 
     if (savedAutoMode === 'false') {
-      // Якщо автоматичний режим вимкнений, використовуємо збережену тему
+      // If automatic mode is off, use saved theme
       setIsAutoTheme(false);
       setTheme(savedTheme || 'light');
       document.documentElement.setAttribute('data-theme', savedTheme || 'light');
     } else {
-      // Автоматичний режим - визначаємо тему за часом
+      // Automatic mode - determine theme based on time
       setIsAutoTheme(true);
       const autoTheme = getThemeByTime();
       setTheme(autoTheme);
       document.documentElement.setAttribute('data-theme', autoTheme);
     }
 
-    // Оновлюємо тему кожну хвилину
+    // Update theme every minute
     const interval = setInterval(() => {
       if (localStorage.getItem('autoTheme') !== 'false') {
         const newAutoTheme = getThemeByTime();
         setTheme(newAutoTheme);
         document.documentElement.setAttribute('data-theme', newAutoTheme);
       }
-    }, 60000); // Перевіряємо кожну хвилину
+    }, 60000); // Check every minute
 
     return () => clearInterval(interval);
   }, []);
 
   const toggleTheme = () => {
     if (isAutoTheme) {
-      // Перший клік - вимикаємо автоматичний режим і переключаємо тему
+      // First click - disable automatic mode and switch theme
       const newTheme = theme === 'light' ? 'dark' : 'light';
       setIsAutoTheme(false);
       setTheme(newTheme);
@@ -138,7 +185,7 @@ function App() {
       localStorage.setItem('autoTheme', 'false');
       document.documentElement.setAttribute('data-theme', newTheme);
     } else {
-      // Подальші кліки - просто переключаємо тему
+      // Further clicks - just switch theme
       const newTheme = theme === 'light' ? 'dark' : 'light';
       setTheme(newTheme);
       localStorage.setItem('theme', newTheme);
@@ -155,19 +202,19 @@ function App() {
     document.documentElement.setAttribute('data-theme', autoTheme);
   };
 
-  // Відстежуємо активну секцію при скролінгу та прогрес
+  // Track active section on scroll and progress
   useEffect(() => {
     const handleScroll = () => {
-      // Прогрес скролу
+      // Scroll progress
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = (window.scrollY / totalHeight) * 100;
       setScrollProgress(Math.min(100, Math.max(0, progress)));
 
-      // Активна секція
+      // Active section
       const sections = componentData.map(comp => document.getElementById(comp.id));
-      const scrollPosition = window.scrollY + 150; // Збільшуємо offset для кращого відстеження
+      const scrollPosition = window.scrollY + 150; // Increase offset for better tracking
 
-      // Знаходимо поточну секцію
+      // Find current section
       let currentSection = '';
 
       for (let i = 0; i < sections.length; i++) {
@@ -177,22 +224,22 @@ function App() {
           const sectionHeight = section.offsetHeight;
           const sectionBottom = sectionTop + sectionHeight;
 
-          // Якщо скрол знаходиться в межах секції
+          // If scroll is within section
           if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
             currentSection = componentData[i].id;
             break;
           }
 
-          // Якщо це остання секція і ми прокрутили нижче всіх
+          // If this is the last section and we scrolled below all
           if (i === sections.length - 1 && scrollPosition >= sectionTop) {
             currentSection = componentData[i].id;
           }
         }
       }
 
-      // Якщо не знайшли активну секцію, але є секції
+      // If no active section found but there are sections
       if (!currentSection && sections.length > 0) {
-        // Знаходимо найближчу секцію зверху
+        // Find closest section above
         for (let i = sections.length - 1; i >= 0; i--) {
           const section = sections[i];
           if (section && section.offsetTop <= scrollPosition) {
@@ -205,7 +252,7 @@ function App() {
       setActiveSection(currentSection);
     };
 
-    // Викликаємо одразу для встановлення початкового стану
+    // Call immediately to set initial state
     handleScroll();
 
     window.addEventListener('scroll', handleScroll);
@@ -232,14 +279,14 @@ function App() {
       <header className="app-header">
         <h1>Component Dashboard</h1>
         <div className="header-info">
-          <span className="component-count">{componentData.length} компонентів</span>
+          <span className="component-count">{componentData.length} components</span>
           <span className="version">v1.0.0</span>
           <div className="theme-controls">
             {!isAutoTheme && (
               <button
                 className="auto-theme-btn"
                 onClick={enableAutoTheme}
-                title="Увімкнути автоматичну тему"
+                title="Enable automatic theme"
               >
                 🕐
               </button>
@@ -249,8 +296,8 @@ function App() {
               onClick={toggleTheme}
               title={
                 isAutoTheme
-                  ? `Автоматична тема (зараз ${theme === 'light' ? 'світла' : 'темна'})`
-                  : (theme === 'light' ? 'Переключити на темну' : 'Переключити на світлу')
+                  ? `Automatic theme (currently ${theme === 'light' ? 'light' : 'dark'})`
+                  : (theme === 'light' ? 'Switch to dark' : 'Switch to light')
               }
             >
               {theme === 'light' ? (
@@ -278,11 +325,6 @@ function App() {
         />
 
         <main className="content-main">
-          <div className="intro-section">
-            <h1>Бібліотека Компонентів</h1>
-            <p>Повна документація та приклади використання React компонентів. Натисніть на назву компонента у меню для швидкого переходу.</p>
-          </div>
-
           {componentData.map((component, index) => (
             <ComponentSection
               key={component.id}

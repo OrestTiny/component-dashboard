@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 
 const ComponentSection = ({ component, isLast }) => {
-  const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltips, setTooltips] = useState({});
 
-  const copyCode = async () => {
+  const copyCode = async (sectionId, code) => {
     try {
-      await navigator.clipboard.writeText(component.code);
-      setShowTooltip(true);
-      setTimeout(() => setShowTooltip(false), 2000);
+      await navigator.clipboard.writeText(code);
+      setTooltips(prev => ({ ...prev, [sectionId]: true }));
+      setTimeout(() => {
+        setTooltips(prev => ({ ...prev, [sectionId]: false }));
+      }, 2000);
     } catch (err) {
       console.error('Failed to copy code:', err);
     }
@@ -15,50 +17,63 @@ const ComponentSection = ({ component, isLast }) => {
 
   return (
     <section id={component.id} className={`component-section ${isLast ? 'last' : ''}`}>
-      {/* Заголовок компонента */}
+      {/* Component Header */}
       <div className="component-header">
         <h2 className="component-title">{component.name}</h2>
-        <p className="component-description">{component.description}</p>
       </div>
 
-      {/* Картинка компонента */}
-      {component.image && (
-        <div className="image-section">
-          <h3 className="section-title">Превью</h3>
-          <div className="image-container">
-            <img
-              src={component.image}
-              alt={`${component.name} component preview`}
-              className="component-image"
-            />
+      {/* Code and Image Sections */}
+      {component.sections && component.sections.map((section, index) => (
+        <div key={section.id} className="component-demo-section">
+          {/* Section Header */}
+          <div className="section-header">
+            <h3 className="section-title">{section.title}</h3>
+            <p className="section-description">{section.description}</p>
           </div>
-        </div>
-      )}
 
-      {/* Код */}
-      <div className="code-section">
-        <div className="code-header">
-          <h3>Код компонента</h3>
-          <div className="copy-button-container">
-            <button
-              className="copy-button"
-              onClick={copyCode}
-            >
-              Копіювати
-            </button>
-            {showTooltip && (
-              <div className="copy-tooltip">
-                ✓ Скопійовано!
+          {/* Layout: code left, image right */}
+          <div className="code-image-layout">
+            {/* Code (50% left) */}
+            <div className="code-section-half">
+              <div className="code-header">
+                <h4>Code</h4>
+                <div className="copy-button-container">
+                  <button
+                    className="copy-button"
+                    onClick={() => copyCode(section.id, section.code)}
+                  >
+                    Copy
+                  </button>
+                  {tooltips[section.id] && (
+                    <div className="copy-tooltip">
+                      ✓ Copied!
+                    </div>
+                  )}
+                </div>
               </div>
-            )}
+              <div className="code-content">
+                <pre>
+                  <code>{section.code}</code>
+                </pre>
+              </div>
+            </div>
+
+            {/* Image (50% right) */}
+            <div className="image-section-half">
+              <div className="image-header">
+                <h4>Preview</h4>
+              </div>
+              <div className="image-container">
+                <img
+                  src={section.image}
+                  alt={`${component.name} - ${section.title}`}
+                  className="component-image"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="code-content">
-          <pre>
-            <code>{component.code}</code>
-          </pre>
-        </div>
-      </div>
+      ))}
     </section>
   );
 };
