@@ -1,7 +1,7 @@
 {
   "name": "component-dashboard",
   "version": "0.1.0",
-  "homepage": "https://yourusername.github.io/component-dashboard",
+  "homepage": "https://OrestTiny.github.io/component-dashboard",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
