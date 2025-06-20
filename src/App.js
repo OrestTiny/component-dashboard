@@ -89,6 +89,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('');
   const [theme, setTheme] = useState('light');
   const [isAutoTheme, setIsAutoTheme] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   // Функція для визначення теми за часом
   const getThemeByTime = () => {
@@ -99,7 +100,7 @@ function App() {
 
   // Theme toggle functionality
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = localStorage.getItem('theme') || 'light';
     const savedAutoMode = localStorage.getItem('autoTheme');
 
     if (savedAutoMode === 'false') {
@@ -154,20 +155,58 @@ function App() {
     document.documentElement.setAttribute('data-theme', autoTheme);
   };
 
-  // Відстежуємо активну секцію при скролінгу
+  // Відстежуємо активну секцію при скролінгу та прогрес
   useEffect(() => {
     const handleScroll = () => {
-      const sections = componentData.map(comp => document.getElementById(comp.id));
-      const scrollPosition = window.scrollY + 100;
+      // Прогрес скролу
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(Math.min(100, Math.max(0, progress)));
 
-      for (let i = sections.length - 1; i >= 0; i--) {
+      // Активна секція
+      const sections = componentData.map(comp => document.getElementById(comp.id));
+      const scrollPosition = window.scrollY + 150; // Збільшуємо offset для кращого відстеження
+
+      // Знаходимо поточну секцію
+      let currentSection = '';
+
+      for (let i = 0; i < sections.length; i++) {
         const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(componentData[i].id);
-          break;
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const sectionBottom = sectionTop + sectionHeight;
+
+          // Якщо скрол знаходиться в межах секції
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            currentSection = componentData[i].id;
+            break;
+          }
+
+          // Якщо це остання секція і ми прокрутили нижче всіх
+          if (i === sections.length - 1 && scrollPosition >= sectionTop) {
+            currentSection = componentData[i].id;
+          }
         }
       }
+
+      // Якщо не знайшли активну секцію, але є секції
+      if (!currentSection && sections.length > 0) {
+        // Знаходимо найближчу секцію зверху
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = sections[i];
+          if (section && section.offsetTop <= scrollPosition) {
+            currentSection = componentData[i].id;
+            break;
+          }
+        }
+      }
+
+      setActiveSection(currentSection);
     };
+
+    // Викликаємо одразу для встановлення початкового стану
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -182,6 +221,14 @@ function App() {
 
   return (
     <div className="app">
+      {/* Scroll Progress Indicator */}
+      <div className="scroll-progress-top">
+        <div
+          className="scroll-progress-bar"
+          style={{ width: `${scrollProgress}%` }}
+        ></div>
+      </div>
+
       <header className="app-header">
         <h1>Component Dashboard</h1>
         <div className="header-info">

@@ -4,8 +4,8 @@ const TableOfContents = ({ components, activeSection, onSectionClick }) => {
   return (
     <nav className="table-of-contents">
       <div className="toc-header">
-        <h2>Зміст</h2>
-        <div className="toc-subtitle">Навігація по компонентах</div>
+        <h2>Компоненти</h2>
+        <p className="toc-subtitle">Навігація по бібліотеці</p>
       </div>
 
       <div className="toc-content">
@@ -27,12 +27,6 @@ const TableOfContents = ({ components, activeSection, onSectionClick }) => {
             </ul>
           </div>
         ))}
-      </div>
-
-      <div className="toc-footer">
-        <div className="scroll-indicator">
-          <div className="scroll-progress"></div>
-        </div>
       </div>
     </nav>
   );
