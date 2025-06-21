@@ -75,6 +75,7 @@ const ComponentSection = ({ component, isLast }) => {
                   src={section.image}
                   alt={`${component.name} - ${section.title}`}
                   className="component-image"
+                  loading="lazy"
                 />
               </div>
             </div>
