@@ -15,6 +15,18 @@ const ComponentSection = ({ component, isLast }) => {
     }
   };
 
+  const copyParam = async (paramName) => {
+    try {
+      await navigator.clipboard.writeText(paramName);
+      setTooltips(prev => ({ ...prev, [`param-${paramName}`]: true }));
+      setTimeout(() => {
+        setTooltips(prev => ({ ...prev, [`param-${paramName}`]: false }));
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy parameter:', err);
+    }
+  };
+
   return (
     <section id={component.id} className={`component-section ${isLast ? 'last' : ''}`}>
       {/* Component Header */}
@@ -25,11 +37,6 @@ const ComponentSection = ({ component, isLast }) => {
       {/* Code and Image Sections */}
       {component.sections && component.sections.map((section, index) => (
         <div key={section.id} className="component-demo-section">
-          {/* Section Header */}
-          <div className="section-header">
-            <h3 className="section-title">{section.title}</h3>
-            <p className="section-description">{section.description}</p>
-          </div>
 
           {/* Layout: code left, image right */}
           <div className="code-image-layout">
@@ -74,6 +81,49 @@ const ComponentSection = ({ component, isLast }) => {
           </div>
         </div>
       ))}
+
+      {/* Parameters Table */}
+      {component.parameters && component.parameters.length > 0 && (
+        <div className="parameters-section">
+          <div className="section-header">
+            <h3 className="section-title">Parameters</h3>
+          </div>
+          <div className="parameters-table-container">
+            <table className="parameters-table">
+              <thead>
+                <tr>
+                  <th>Parameter</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {component.parameters.map((param, index) => (
+                  <tr key={index}>
+                    <td>
+                      <div className="param-name-container">
+                        <span className="param-name">{param.name} {'=> ""'}</span>
+                        <button
+                          className="param-copy-btn"
+                          onClick={() => copyParam(param.name + ' => ""')}
+                          title="Copy parameter name"
+                        >
+                          📋
+                        </button>
+                        {tooltips[`param-${param.name}`] && (
+                          <div className="param-tooltip">
+                            ✓ Copied!
+                          </div>
+                        )}
+                      </div>
+                    </td>
+                    <td className="param-description">{param.description}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
