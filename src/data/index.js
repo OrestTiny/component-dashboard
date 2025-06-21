@@ -1,10 +1,10 @@
-import { colorInputData } from './colorinput';
 import { segmentedToggleAlignmentData } from './segmentedToggle';
+import { textEditorData } from './textEditor';
 // Export all component data
 export const componentData = [
-  colorInputData,
+  textEditorData,
   segmentedToggleAlignmentData,
 ];
 
 // You can also export individual components
-export { colorInputData, segmentedToggleAlignmentData }; 
+export { segmentedToggleAlignmentData, textEditorData }; 

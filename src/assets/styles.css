@@ -405,7 +405,7 @@ body {
 }
 
 .image-container {
-  background: var(--bg-card);
+  background: #ffffff;
   border: 1px solid var(--border-primary);
   border-radius: 16px;
   overflow: hidden;
@@ -605,7 +605,7 @@ body {
 }
 
 .image-section-half .image-container {
-  background: var(--text-primary);
+  background: #ffffff;
   border: 1px solid var(--border-primary);
   border-radius: 0 0 16px 16px;
   overflow: hidden;
