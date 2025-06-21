@@ -109,12 +109,10 @@ const ComponentSection = ({ component, isLast }) => {
                           title="Copy parameter name"
                         >
                           📋
-                        </button>
-                        {tooltips[`param-${param.name}`] && (
-                          <div className="param-tooltip">
+                          <div className={`param-tooltip ${tooltips[`param-${param.name} => ""`] ? 'visible' : ''}`}>
                             ✓ Copied!
                           </div>
-                        )}
+                        </button>
                       </div>
                     </td>
                     <td className="param-description">{param.description}</td>

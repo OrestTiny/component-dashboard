@@ -742,7 +742,6 @@ body {
 }
 
 .parameters-table-container {
-  margin-top: 32px;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -832,6 +831,7 @@ body {
   justify-content: center;
   min-width: 36px;
   height: 36px;
+  position: relative;
 }
 
 .param-copy-btn:hover {
@@ -851,7 +851,14 @@ body {
   font-weight: 600;
   white-space: nowrap;
   z-index: 1000;
-  animation: tooltip-fade-in 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.param-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .param-tooltip::after {
