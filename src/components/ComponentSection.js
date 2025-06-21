@@ -60,7 +60,7 @@ const ComponentSection = ({ component, isLast }) => {
               </div>
               <div className="code-content">
                 <pre>
-                  <code>{section.code}</code>
+                  <code>{section.code.trim()}</code>
                 </pre>
               </div>
             </div>

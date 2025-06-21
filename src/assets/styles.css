@@ -342,20 +342,20 @@ body {
 
 /* Component Sections */
 .component-section {
-  margin-bottom: 80px;
-  scroll-margin-top: 100px;
+  margin-bottom: 150px;
+  scroll-margin-top: 20px;
   position: relative;
 }
 
 .component-section:not(.last)::after {
   content: '';
   position: absolute;
-  bottom: -40px;
+  bottom: -80px;
   left: 0;
   right: 0;
-  height: 1px;
-  background: var(--border-primary);
-  opacity: 0.5;
+  height: 4px;
+  background: var(--border-secondary);
+  opacity: 1;
 }
 
 .component-section.last {
@@ -515,8 +515,9 @@ body {
 }
 
 .code-content {
-  padding: 32px;
+  padding: 15px;
   overflow-x: auto;
+  height: 100%;
 }
 
 .code-content pre {
@@ -530,7 +531,7 @@ body {
 
 /* Component Demo Sections */
 .component-demo-section {
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
 .component-demo-section:last-child {
@@ -733,8 +734,8 @@ body {
 
 /* Parameters Table Styles */
 .parameters-section {
-  margin-top: 48px;
-  padding-top: 32px;
+  margin-top: 25px;
+  padding-top: 25px;
   border-top: 1px solid var(--border-primary);
   width: 100%;
   max-width: 100%;
