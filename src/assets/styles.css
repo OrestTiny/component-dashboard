@@ -420,7 +420,6 @@ body {
   width: 100%;
   height: auto;
   display: block;
-  max-height: 400px;
   object-fit: cover;
 }
 
@@ -605,7 +604,7 @@ body {
   overflow: hidden;
   box-shadow: 0 8px 32px var(--shadow-light);
   transition: all 0.3s ease;
-  height: calc(100% - 52px);
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -619,7 +618,6 @@ body {
   width: 100%;
   height: auto;
   display: block;
-  max-height: 350px;
   object-fit: contain;
   padding: 20px;
 }

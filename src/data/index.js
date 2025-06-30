@@ -10,7 +10,10 @@ import { numberInputData } from './numberInput';
 import { headingData } from './heading';
 import { spacingData } from './spacing';
 import { fontFamilySectionData } from './fontFamilySection';
+import { fontFamilySectionTabsData } from './fontFamilySectionTabs';
 import { borderSectionData } from './borderSection';
+import { borderSectionTabsData } from './borderSectionTabs';
+
 import { designAccordionSectionData } from './designAccordionSection';
 // Export all component data
 export const componentData = [
@@ -26,7 +29,9 @@ export const componentData = [
   colorPickerSingleData,
   spacingData,
   fontFamilySectionData,
+  fontFamilySectionTabsData,
   borderSectionData,
+  borderSectionTabsData,
   designAccordionSectionData,
 ];
 
@@ -44,6 +49,8 @@ export {
   headingData,
   spacingData,
   fontFamilySectionData,
+  fontFamilySectionTabsData,
   borderSectionData,
   designAccordionSectionData,
+  borderSectionTabsData,
 }; 
