@@ -16,6 +16,10 @@ import { borderSectionTabsData } from './borderSectionTabs';
 import { repeaterData } from './repeater';
 import { designAccordionSectionData } from './designAccordionSection';
 import { columnsData } from './columns';
+import { segmentedToggleImageData } from './segmentedToggleImage';
+import { segmentedToggleResponsiveData } from './segmentedToggleResponsive';
+import { segmentedToggleTabsData } from './segmentedToggleTabs';
+
 // Export all component data
 export const componentData = [
   headingWidgetData,
@@ -24,6 +28,9 @@ export const componentData = [
   textEditorData,
   numberInputData,
   segmentedToggleAlignmentData,
+  segmentedToggleImageData,
+  segmentedToggleResponsiveData,
+  segmentedToggleTabsData,
   rangeData,
   switcherData,
   uploadFileData,
@@ -58,4 +65,7 @@ export {
   borderSectionTabsData,
   repeaterData,
   columnsData,
+  segmentedToggleImageData,
+  segmentedToggleResponsiveData,
+  segmentedToggleTabsData,
 }; 

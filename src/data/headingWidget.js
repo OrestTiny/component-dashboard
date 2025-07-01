@@ -12,6 +12,10 @@ export const headingWidgetData = {
     {
       name: 'w_title',
       description: 'Description for the heading field'
+    },
+    {
+      name: 'w_icon',
+      description: 'path - "/assets/images/section/*.svg"'
     }
   ],
   sections: [
@@ -20,8 +24,8 @@ export const headingWidgetData = {
       image: `${process.env.PUBLIC_URL}/assets/images/headingWidget/basic.png`,
       code: `
 @include('widget::components.design-parts.widget_header', [
-    'w_title' => 'widgetName_item_title',
-    'w_btn_class' => 'js-repeater-field__content-btn',
+    'w_icon' => 'widgetName.svg',
+    'w_title' => 'widgetName,
 ])
     `
     },
