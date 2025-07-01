@@ -8,15 +8,17 @@ import { colorPickerData } from './colorPicker';
 import { colorPickerSingleData } from './colorPickerSingle';
 import { numberInputData } from './numberInput';
 import { headingData } from './heading';
+import { headingWidgetData } from './headingWidget';
 import { spacingData } from './spacing';
 import { fontFamilySectionData } from './fontFamilySection';
-import { fontFamilySectionTabsData } from './fontFamilySectionTabs';
 import { borderSectionData } from './borderSection';
 import { borderSectionTabsData } from './borderSectionTabs';
-
+import { repeaterData } from './repeater';
 import { designAccordionSectionData } from './designAccordionSection';
+import { columnsData } from './columns';
 // Export all component data
 export const componentData = [
+  headingWidgetData,
   headingData,
   textInputData,
   textEditorData,
@@ -29,15 +31,17 @@ export const componentData = [
   colorPickerSingleData,
   spacingData,
   fontFamilySectionData,
-  fontFamilySectionTabsData,
   borderSectionData,
   borderSectionTabsData,
   designAccordionSectionData,
-];
+  repeaterData,
+  columnsData,
+  ];
 
 // You can also export individual components
 export { 
   segmentedToggleAlignmentData,
+  headingWidgetData,
   textEditorData,
   textInputData,
   rangeData,
@@ -49,8 +53,9 @@ export {
   headingData,
   spacingData,
   fontFamilySectionData,
-  fontFamilySectionTabsData,
   borderSectionData,
   designAccordionSectionData,
   borderSectionTabsData,
+  repeaterData,
+  columnsData,
 }; 
