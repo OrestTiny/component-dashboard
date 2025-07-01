@@ -19,6 +19,7 @@ import { columnsData } from './columns';
 import { segmentedToggleImageData } from './segmentedToggleImage';
 import { segmentedToggleResponsiveData } from './segmentedToggleResponsive';
 import { segmentedToggleTabsData } from './segmentedToggleTabs';
+import { segmentedToggleAlignmentMiniData } from './segmentedToggleAlignmentMini';
 
 // Export all component data
 export const componentData = [
@@ -28,6 +29,7 @@ export const componentData = [
   textEditorData,
   numberInputData,
   segmentedToggleAlignmentData,
+  segmentedToggleAlignmentMiniData,
   segmentedToggleImageData,
   segmentedToggleResponsiveData,
   segmentedToggleTabsData,
@@ -68,4 +70,5 @@ export {
   segmentedToggleImageData,
   segmentedToggleResponsiveData,
   segmentedToggleTabsData,
+  segmentedToggleAlignmentMiniData,
 }; 
