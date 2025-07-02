@@ -16,6 +16,14 @@ export const segmentedToggleAlignmentData = {
       name: 'class',
       description: 'content_layout_alignment'
     },
+    {
+      name: 'name',
+      description: 'name for the segmented toggle alignment field'
+    },
+    {
+      name: 'addClass',
+      description: 'col-2, col-3, col-4'
+    },
   ],
   sections: [
     {
@@ -43,5 +51,37 @@ export const segmentedToggleAlignmentData = {
 ])
 `
     },
+    {
+      id: 'secondary',
+      image: `${process.env.PUBLIC_URL}/assets/images/segmentedToggleAlignment/secondary.png`,
+      code: `
+@include('widget::components.design-parts.position', [
+    'position_title' => 'title',
+    'position_desc' => 'desc',
+    'name' => 'name',
+    'addClass' => 'col-2',
+    'custom_positions' => [
+        [
+            "text" => 'Option 1',
+            "value" => "option_1"
+        ],
+        [
+            "text" => 'Option 2',
+            "value" => "option_2"
+        ]
+    ]
+])
+`
+    },    
+    {
+      id: 'tertiary',
+      image: `${process.env.PUBLIC_URL}/assets/images/segmentedToggleAlignment/3.png`,
+      code: `
+@include('widget::components.design-parts.position', [
+    'position_title' => 'title',
+    'position_desc' => 'desc',
+])
+`
+    },    
   ]
 }; 

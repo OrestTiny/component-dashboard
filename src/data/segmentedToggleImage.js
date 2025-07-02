@@ -24,6 +24,10 @@ export const segmentedToggleImageData = {
       name: 'svg',
       description: 'svg code'
     },
+    {
+      name: 'addit_class',
+      description: 'teaser-img-pos,'
+    },
   ],
   sections: [
     {
@@ -47,6 +51,44 @@ export const segmentedToggleImageData = {
           'svg' => 'svg',
       ],
   ],
+])
+`
+    },
+    {
+      id: 'secondary',
+      image: `${process.env.PUBLIC_URL}/assets/images/segmentedToggleImage/2.png`,
+      code: `
+@include('widget::components.design-parts.image_radio', [
+  'title' => 'title',
+  'input_name' => 'name',
+  'addit_class' => 'teaser-img-pos',
+  'options' => [
+      [
+          'value' => 'option_1',
+          'text' => 'Option 1',
+          'img' => 'option_1.svg'
+      ],
+      [
+          'value' => 'option_2',
+          'text' => 'Option 2',
+          'img' => 'option_2.svg'
+      ],
+      [
+          'value' => 'option_3',
+          'text' => 'Option 3',
+          'img' => 'option_3.svg'
+      ],
+      [
+          'value' => 'option_4',
+          'text' => 'Option 4',
+          'img' => 'option_4.svg'
+      ],
+      [
+          'value' => 'option_5',
+          'text' => 'Option 5',
+          'img' => 'option_5.svg'
+      ]
+  ]
 ])
 `
     },

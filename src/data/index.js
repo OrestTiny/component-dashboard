@@ -17,9 +17,9 @@ import { repeaterData } from './repeater';
 import { designAccordionSectionData } from './designAccordionSection';
 import { columnsData } from './columns';
 import { segmentedToggleImageData } from './segmentedToggleImage';
-import { segmentedToggleResponsiveData } from './segmentedToggleResponsive';
 import { segmentedToggleTabsData } from './segmentedToggleTabs';
-import { segmentedToggleAlignmentMiniData } from './segmentedToggleAlignmentMini';
+import { segmentedToggleMiniData } from './segmentedToggleMini';
+import { radioData } from './radio';
 
 // Export all component data
 export const componentData = [
@@ -29,12 +29,12 @@ export const componentData = [
   textEditorData,
   numberInputData,
   segmentedToggleAlignmentData,
-  segmentedToggleAlignmentMiniData,
+  segmentedToggleMiniData,
   segmentedToggleImageData,
-  segmentedToggleResponsiveData,
   segmentedToggleTabsData,
-  rangeData,
   switcherData,
+  radioData,
+  rangeData,
   uploadFileData,
   colorPickerData,
   colorPickerSingleData,
@@ -55,6 +55,7 @@ export {
   textInputData,
   rangeData,
   switcherData,
+  radioData,
   uploadFileData,
   colorPickerData,
   colorPickerSingleData,
@@ -68,7 +69,6 @@ export {
   repeaterData,
   columnsData,
   segmentedToggleImageData,
-  segmentedToggleResponsiveData,
   segmentedToggleTabsData,
-  segmentedToggleAlignmentMiniData,
+  segmentedToggleMiniData,
 }; 
