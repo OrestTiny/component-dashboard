@@ -18,11 +18,11 @@ export const fontFamilySectionData = {
     <div class="two-column">
         @include('widget::components.design-parts.google_fonts_select',[
             'title_g' => 'title',
-            'name' => 'name'
+            'key' => 'widgetObjectKey_font'
         ])
         @include('widget::components.design-parts.font_weight', [
             'title_w' => 'title',
-            'name' => 'name'
+            'key' => 'widgetObjectKey_weight'
         ])
     </div>
 
@@ -30,7 +30,7 @@ export const fontFamilySectionData = {
         'title' => 'title',
         'items' => [
             [
-                'name' => 'name',
+                'key' => 'widgetObjectKey_size',
                 'min_max' => ['0', '100'],
                 'unit' => 'px'
             ]
@@ -41,7 +41,7 @@ export const fontFamilySectionData = {
         'title' => 'title',
         'items' => [
             [
-                'name' => 'name',
+                'key' => 'widgetObjectKey_line_height',
                 'min_max' => ['0', '100'],
                 'unit' => 'px'
             ]
@@ -51,12 +51,12 @@ export const fontFamilySectionData = {
     `
     },
     {
-      id: 'basic',
+      id: 'secondary',
       image: `${process.env.PUBLIC_URL}/assets/images/fontFamilySection/secondary.png`,
       code: `
 @include('widget::components.template-parts.tab-group',[
-  'title' => 'title',
-  'desc' => 'desc',
+  'title' => 'font_section_title',
+  'desc' => 'font_section_desc',
   'input_name' => 'name',
   'full_width' => false,
   'tabs' => [
@@ -76,11 +76,11 @@ export const fontFamilySectionData = {
     <div class="two-column">
         @include('widget::components.design-parts.google_fonts_select',[
             'title_g' => 'title',
-            'name' => 'name'
+            'key' => 'widgetObjectKey_font'
         ])
         @include('widget::components.design-parts.font_weight', [
             'title_w' => 'title',
-            'name' => 'name'
+            'key' => 'widgetObjectKey_weight'
         ])
     </div>
 
@@ -88,7 +88,7 @@ export const fontFamilySectionData = {
         'title' => 'title',
         'items' => [
             [
-                'name' => 'name',
+                'key' => 'widgetObjectKey_size',
                 'min_max' => ['0', '100'],
                 'unit' => 'px'
             ]
@@ -99,7 +99,7 @@ export const fontFamilySectionData = {
         'title' => 'title',
         'items' => [
             [
-                'name' => 'name',
+                'key' => 'widgetObjectKey_line_height',
                 'min_max' => ['0', '100'],
                 'unit' => 'px'
             ]
@@ -111,11 +111,11 @@ export const fontFamilySectionData = {
     <div class="two-column">
         @include('widget::components.design-parts.google_fonts_select',[
             'title_g' => 'title_hover',
-            'name' => 'name_hover'
+            'key' => 'widgetObjectKey_font_hover'
         ])
         @include('widget::components.design-parts.font_weight', [
             'title_w' => 'title_hover',
-            'name' => 'name_hover'
+            'key' => 'widgetObjectKey_weight_hover'
         ])
     </div>
 
@@ -123,7 +123,7 @@ export const fontFamilySectionData = {
         'title' => 'title_hover',
         'items' => [
             [
-                'name' => 'name_hover',
+                'key' => 'widgetObjectKey_size_hover',
                 'min_max' => ['0', '100'],
                 'unit' => 'px'
             ]
@@ -134,7 +134,7 @@ export const fontFamilySectionData = {
         'title' => 'title_hover',
         'items' => [
             [
-                'name' => 'name_hover',
+                'key' => 'widgetObjectKey_line_height_hover',
                 'min_max' => ['0', '100'],
                 'unit' => 'px'
             ]

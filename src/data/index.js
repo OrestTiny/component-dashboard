@@ -5,14 +5,12 @@ import { rangeData } from './range';
 import { switcherData } from './switcher';
 import { uploadFileData } from './uploadFile';
 import { colorPickerData } from './colorPicker';
-import { colorPickerSingleData } from './colorPickerSingle';
 import { numberInputData } from './numberInput';
 import { headingData } from './heading';
 import { headingWidgetData } from './headingWidget';
 import { spacingData } from './spacing';
 import { fontFamilySectionData } from './fontFamilySection';
 import { borderSectionData } from './borderSection';
-import { borderSectionTabsData } from './borderSectionTabs';
 import { repeaterData } from './repeater';
 import { designAccordionSectionData } from './designAccordionSection';
 import { columnsData } from './columns';
@@ -37,11 +35,9 @@ export const componentData = [
   rangeData,
   uploadFileData,
   colorPickerData,
-  colorPickerSingleData,
   spacingData,
   fontFamilySectionData,
   borderSectionData,
-  borderSectionTabsData,
   designAccordionSectionData,
   repeaterData,
   columnsData,
@@ -58,14 +54,12 @@ export {
   radioData,
   uploadFileData,
   colorPickerData,
-  colorPickerSingleData,
   numberInputData,
   headingData,
   spacingData,
   fontFamilySectionData,
   borderSectionData,
   designAccordionSectionData,
-  borderSectionTabsData,
   repeaterData,
   columnsData,
   segmentedToggleImageData,

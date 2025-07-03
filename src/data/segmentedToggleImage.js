@@ -92,5 +92,41 @@ export const segmentedToggleImageData = {
 ])
 `
     },
+    {
+      id: '3',
+      image: `${process.env.PUBLIC_URL}/assets/images/segmentedToggleImage/3.png`,
+      code: `
+@include('widget::components.design-parts.image_radio', [
+    'input_name' => 'icon',
+    'addit_class' => 'teaser-img-pos',
+    'options' => [
+        [
+            'value' => 'icon1',
+            'img' => 'assets/images/radios/top_btn_arrow1.svg'
+        ],
+        [
+            'value' => 'icon2',
+            'img' => 'assets/images/radios/top_btn_arrow2.svg'
+        ],
+        [
+            'value' => 'icon3',
+            'img' => 'assets/images/radios/top_btn_arrow3.svg'
+        ],
+        [
+            'value' => 'icon4',
+            'img' => 'assets/images/radios/top_btn_arrow4.svg'
+        ],
+        [
+            'value' => 'icon5',
+            'img' => 'assets/images/radios/top_btn_arrow5.svg'
+        ],
+        [
+            'value' => 'icon6',
+            'img' => 'assets/images/radios/top_btn_arrow6.svg'
+        ],
+    ]
+])
+`
+    },
   ]
 }; 
