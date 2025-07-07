@@ -18,6 +18,7 @@ import { segmentedToggleImageData } from './segmentedToggleImage';
 import { segmentedToggleTabsData } from './segmentedToggleTabs';
 import { segmentedToggleMiniData } from './segmentedToggleMini';
 import { radioData } from './radio';
+import { selectData } from './select';
 
 // Export all component data
 export const componentData = [
@@ -31,6 +32,7 @@ export const componentData = [
   segmentedToggleImageData,
   segmentedToggleTabsData,
   switcherData,
+  selectData,
   radioData,
   rangeData,
   uploadFileData,
@@ -51,6 +53,7 @@ export {
   textInputData,
   rangeData,
   switcherData,
+  selectData,
   radioData,
   uploadFileData,
   colorPickerData,

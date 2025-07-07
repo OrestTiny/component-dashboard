@@ -52,6 +52,7 @@ export const segmentedToggleMiniData = {
     'title_s' => 'title',
     'desc_s' => 'desc',
     'switcher_type' => 'primary-color',
+    'name' => 'name',
     'custom_options' => [
             [
                 'value' => '1',
