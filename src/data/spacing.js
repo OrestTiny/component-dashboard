@@ -47,8 +47,6 @@ export const spacingData = {
     ])
 
     @include('widget::components.design-parts.spaces', [
-        'title' => 'title',
-        'desc' => 'desc',
         'input_p_t' => ['w-widgetName-padding-t', 'padding_t'],
         'input_p_r' => ['w-widgetName-padding-r', 'padding_r'],
         'input_p_b' => ['w-widgetName-padding-b', 'padding_b'],
