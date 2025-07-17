@@ -33,7 +33,9 @@ export const segmentedToggleAlignmentData = {
 @include('widget::components.design-parts.position', [
     'position_title' => 'title',
     'position_desc' => 'desc',
+    'addClass' => 'mainClass',
     'class' => 'content_layout_alignment',
+    'name' => 'name',
     'custom_positions' => [
         [
             "text" => 'Left',

@@ -19,12 +19,14 @@ import { segmentedToggleTabsData } from './segmentedToggleTabs';
 import { segmentedToggleMiniData } from './segmentedToggleMini';
 import { radioData } from './radio';
 import { selectData } from './select';
+import { textAreaData } from './textArea';
 
 // Export all component data
 export const componentData = [
   headingWidgetData,
   headingData,
   textInputData,
+  textAreaData,
   textEditorData,
   numberInputData,
   segmentedToggleAlignmentData,
@@ -51,6 +53,7 @@ export {
   headingWidgetData,
   textEditorData,
   textInputData,
+  textAreaData,
   rangeData,
   switcherData,
   selectData,

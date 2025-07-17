@@ -34,6 +34,7 @@ export const numberInputData = {
 @include('widget::components.design-parts.number', [
   'number_title' => 'title',
   'number_desc' => 'desc',
+  'number_name' => 'name',
   'addit_class' => 'in-row',
   'unit' => 'px'
 ])
