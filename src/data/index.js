@@ -11,7 +11,6 @@ import { headingWidgetData } from './headingWidget';
 import { spacingData } from './spacing';
 import { fontFamilySectionData } from './fontFamilySection';
 import { borderSectionData } from './borderSection';
-import { borderSectionTabsData } from './borderSectionTabs';
 import { chooseProductData } from './chooseProduct';
 import { repeaterData } from './repeater';
 import { designAccordionSectionData } from './designAccordionSection';
@@ -69,7 +68,6 @@ export {
   fontFamilySectionData,
   borderSectionData,
   designAccordionSectionData,
-  borderSectionTabsData,
   chooseProductData,
   repeaterData,
   columnsData,

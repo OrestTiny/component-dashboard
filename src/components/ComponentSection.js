@@ -70,14 +70,30 @@ const ComponentSection = ({ component, isLast }) => {
               <div className="image-header">
                 <h4>Preview</h4>
               </div>
-              <div className="image-container">
-                <img
-                  src={section.image}
-                  alt={`${component.name} - ${section.title}`}
-                  className="component-image"
-                  loading="lazy"
-                />
-              </div>
+              
+                {Array.isArray(section.image) ? (
+                  section.image.map((img, index) => (
+                    <div className="image-container">
+                    <img
+                      key={index}
+                      src={img}
+                      alt={`${component.name} - ${section.title}`}
+                      className="component-image"
+                      loading="lazy"
+                    />
+                    </div>
+                  ))
+                ) : (
+                  <div className="image-container">
+                    <img
+                      src={section.image}
+                      alt={`${component.name} - ${section.title}`}
+                      className="component-image"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+
             </div>
           </div>
         </div>

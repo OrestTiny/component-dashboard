@@ -57,5 +57,17 @@ export const textInputData = {
 ])
     `
     },
+    {
+      id: '3',
+      image: `${process.env.PUBLIC_URL}/assets/images/textInput/3.png`,
+      code: `
+@include('widget::components.design-parts.text', [
+    'title' => 'title',
+    'desc' => 'desc',
+    'name' => 'name',
+    'additClass' => 'one-row'
+])
+    `
+    },
   ]
 }; 

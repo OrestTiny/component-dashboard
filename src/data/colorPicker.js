@@ -25,7 +25,7 @@ export const colorPickerData = {
       code: `
 @include('widget::components.design-parts.color', [
     'color_class' => 'class',
-    'key' => 'key,
+    'key' => 'key',
     'hide_heading' => true
 ])
     `
