@@ -13,7 +13,7 @@ import { fontFamilySectionData } from './fontFamilySection';
 import { fontFamilySectionTabsData } from './fontFamilySectionTabs';
 import { borderSectionData } from './borderSection';
 import { borderSectionTabsData } from './borderSectionTabs';
-
+import { chooseProductData } from './chooseProduct';
 import { designAccordionSectionData } from './designAccordionSection';
 // Export all component data
 export const componentData = [
@@ -33,6 +33,7 @@ export const componentData = [
   borderSectionData,
   borderSectionTabsData,
   designAccordionSectionData,
+  chooseProductData,
 ];
 
 // You can also export individual components
@@ -53,4 +54,5 @@ export {
   borderSectionData,
   designAccordionSectionData,
   borderSectionTabsData,
+  chooseProductData,
 }; 
