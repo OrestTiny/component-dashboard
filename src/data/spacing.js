@@ -36,5 +36,25 @@ export const spacingData = {
     ])
     `
     },
+    {
+      id: '2',
+      image: `${process.env.PUBLIC_URL}/assets/images/spacing/2.png`,
+      code: `
+<div class="tile-column">
+    @include('widget::components.design-parts.title_desc', [
+        'title' => 'title',
+        'desc' => 'desc',
+    ])
+
+    @include('widget::components.design-parts.spaces', [
+        'input_p_t' => ['w-widgetName-padding-t', 'padding_t'],
+        'input_p_r' => ['w-widgetName-padding-r', 'padding_r'],
+        'input_p_b' => ['w-widgetName-padding-b', 'padding_b'],
+        'input_p_l' => ['w-widgetName-padding-l', 'padding_l'],
+        'min_max' => ['0', '500']
+    ])
+</div>
+    `
+    },
   ]
 }; 

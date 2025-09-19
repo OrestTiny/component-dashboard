@@ -5,54 +5,75 @@ import { rangeData } from './range';
 import { switcherData } from './switcher';
 import { uploadFileData } from './uploadFile';
 import { colorPickerData } from './colorPicker';
-import { colorPickerSingleData } from './colorPickerSingle';
 import { numberInputData } from './numberInput';
 import { headingData } from './heading';
+import { headingWidgetData } from './headingWidget';
 import { spacingData } from './spacing';
 import { fontFamilySectionData } from './fontFamilySection';
-import { fontFamilySectionTabsData } from './fontFamilySectionTabs';
 import { borderSectionData } from './borderSection';
 import { borderSectionTabsData } from './borderSectionTabs';
 import { chooseProductData } from './chooseProduct';
+import { repeaterData } from './repeater';
 import { designAccordionSectionData } from './designAccordionSection';
+import { columnsData } from './columns';
+import { segmentedToggleImageData } from './segmentedToggleImage';
+import { segmentedToggleTabsData } from './segmentedToggleTabs';
+import { segmentedToggleMiniData } from './segmentedToggleMini';
+import { radioData } from './radio';
+import { selectData } from './select';
+import { textAreaData } from './textArea';
+
 // Export all component data
 export const componentData = [
+  headingWidgetData,
   headingData,
   textInputData,
+  textAreaData,
   textEditorData,
   numberInputData,
   segmentedToggleAlignmentData,
-  rangeData,
+  segmentedToggleMiniData,
+  segmentedToggleImageData,
+  segmentedToggleTabsData,
   switcherData,
+  selectData,
+  radioData,
+  rangeData,
   uploadFileData,
   colorPickerData,
-  colorPickerSingleData,
   spacingData,
   fontFamilySectionData,
-  fontFamilySectionTabsData,
   borderSectionData,
-  borderSectionTabsData,
   designAccordionSectionData,
   chooseProductData,
-];
+  repeaterData,
+  columnsData,
+  ];
 
 // You can also export individual components
 export { 
   segmentedToggleAlignmentData,
+  headingWidgetData,
   textEditorData,
   textInputData,
+  textAreaData,
   rangeData,
   switcherData,
+  selectData,
+  radioData,
   uploadFileData,
   colorPickerData,
-  colorPickerSingleData,
   numberInputData,
   headingData,
   spacingData,
   fontFamilySectionData,
-  fontFamilySectionTabsData,
   borderSectionData,
   designAccordionSectionData,
   borderSectionTabsData,
   chooseProductData,
+  repeaterData,
+  columnsData,
+  segmentedToggleImageData,
+  segmentedToggleTabsData,
+  segmentedToggleMiniData,
 }; 

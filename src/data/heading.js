@@ -1,8 +1,8 @@
 export const headingData = {
   id: 'heading',
-  name: 'Heading',
+  name: 'Title & Description',
   category: 'Form',
-  description: 'Heading allows the user to enter a heading',
+  description: 'Title & Description allows the user to enter a title and description',
   parameters: [
     {
       name: 'title',

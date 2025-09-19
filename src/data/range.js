@@ -46,5 +46,27 @@ export const rangeData = {
 ])
     `
     },
+    {
+      id: 'secondary',
+      image: `${process.env.PUBLIC_URL}/assets/images/range/secondary.png`,
+      code: `
+@include('widget::components.design-parts.range_unit', [
+    'title' => 'title',
+    'items' => [
+        [
+            'name' => 'name',
+            'min_max' => ['0', '340'],
+            'unit' => 'px'
+        ],
+        [
+            'name' => 'name',
+            'min_max' => ['0', '340'],
+            'unit' => '%'
+        ],
+        
+    ]
+])
+    `
+    },    
   ]
 }; 

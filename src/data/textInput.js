@@ -27,6 +27,10 @@ export const textInputData = {
     {
       name: 'infoText',
       description: 'Info text for the input'
+    },
+    {
+      name: 'placeholder',
+      description: 'Placeholder for the input'
     }
   ],
   sections: [
@@ -38,6 +42,18 @@ export const textInputData = {
     'title' => 'title',
     'desc' => 'desc',
     'name' => 'name',
+])
+    `
+    },
+    {
+      id: '2',
+      image: `${process.env.PUBLIC_URL}/assets/images/textInput/2.png`,
+      code: `
+@include('widget::components.design-parts.text', [
+    'title' => 'title',
+    'name' => 'name',
+    'infoText' => 'infoText',  
+    'placeholder' => 'placeholder',
 ])
     `
     },
