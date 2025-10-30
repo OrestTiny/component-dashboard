@@ -30,5 +30,10 @@ export const selectData = {
 ])
     `
     },
+    {
+      id: '2',
+      image: `${process.env.PUBLIC_URL}/assets/images/select/2.png`,
+      code: ``
+    },
   ]
 }; 

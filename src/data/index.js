@@ -20,7 +20,7 @@ import { segmentedToggleMiniData } from './segmentedToggleMini';
 import { radioData } from './radio';
 import { selectData } from './select';
 import { textAreaData } from './textArea';
-
+import { datePickerData } from './datePicker';
 // Export all component data
 export const componentData = [
   headingWidgetData,
@@ -28,6 +28,7 @@ export const componentData = [
   textInputData,
   textAreaData,
   textEditorData,
+  datePickerData,
   numberInputData,
   segmentedToggleAlignmentData,
   segmentedToggleMiniData,
@@ -45,6 +46,7 @@ export const componentData = [
   designAccordionSectionData,
   repeaterData,
   columnsData,
+
   ];
 
 // You can also export individual components
@@ -71,4 +73,5 @@ export {
   segmentedToggleImageData,
   segmentedToggleTabsData,
   segmentedToggleMiniData,
+  datePickerData,
 }; 
