@@ -11,6 +11,7 @@ import { headingWidgetData } from './headingWidget';
 import { spacingData } from './spacing';
 import { fontFamilySectionData } from './fontFamilySection';
 import { borderSectionData } from './borderSection';
+import { chooseProductData } from './chooseProduct';
 import { repeaterData } from './repeater';
 import { designAccordionSectionData } from './designAccordionSection';
 import { columnsData } from './columns';
@@ -46,6 +47,7 @@ export const componentData = [
   fontFamilySectionData,
   borderSectionData,
   designAccordionSectionData,
+  chooseProductData,
   repeaterData,
   columnsData,
  
@@ -70,6 +72,7 @@ export {
   fontFamilySectionData,
   borderSectionData,
   designAccordionSectionData,
+  chooseProductData,
   repeaterData,
   columnsData,
   segmentedToggleImageData,
