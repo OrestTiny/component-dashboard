@@ -33,7 +33,19 @@ export const selectData = {
     {
       id: '2',
       image: `${process.env.PUBLIC_URL}/assets/images/select/2.png`,
-      code: ``
+      code: `
+@include('widget::components.design-parts.select', [
+    'title' => 'title',
+    'desc_sel' => 'desc_sel',
+    'addClass' => 'select-row',
+    'name' => 'name',
+    'options' => [
+        '1'  => '1',
+        '2' => '2',
+        '3' => '3',
+    ]
+])   
+`
     },
   ]
 }; 

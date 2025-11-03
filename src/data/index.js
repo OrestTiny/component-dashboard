@@ -21,6 +21,7 @@ import { radioData } from './radio';
 import { selectData } from './select';
 import { textAreaData } from './textArea';
 import { datePickerData } from './datePicker';
+import { checkboxListData } from './checkboxList';
 // Export all component data
 export const componentData = [
   headingWidgetData,
@@ -34,6 +35,7 @@ export const componentData = [
   segmentedToggleMiniData,
   segmentedToggleImageData,
   segmentedToggleTabsData,
+  checkboxListData,
   switcherData,
   selectData,
   radioData,
@@ -46,7 +48,7 @@ export const componentData = [
   designAccordionSectionData,
   repeaterData,
   columnsData,
-
+ 
   ];
 
 // You can also export individual components
@@ -74,4 +76,5 @@ export {
   segmentedToggleTabsData,
   segmentedToggleMiniData,
   datePickerData,
+  checkboxListData,
 }; 
