@@ -23,7 +23,10 @@ import { selectData } from './select';
 import { textAreaData } from './textArea';
 import { datePickerData } from './datePicker';
 import { checkboxListData } from './checkboxList';
-// Export all component data
+import { tagsInputData } from './tagsInput';
+import { notiInfoData } from './notiInfo';
+
+    // Export all component data
 export const componentData = [
   headingWidgetData,
   headingData,
@@ -36,6 +39,7 @@ export const componentData = [
   segmentedToggleMiniData,
   segmentedToggleImageData,
   segmentedToggleTabsData,
+  tagsInputData,
   checkboxListData,
   switcherData,
   selectData,
@@ -50,7 +54,7 @@ export const componentData = [
   chooseProductData,
   repeaterData,
   columnsData,
- 
+  notiInfoData,
   ];
 
 // You can also export individual components
@@ -61,6 +65,7 @@ export {
   textInputData,
   textAreaData,
   rangeData,
+  notiInfoData,
   switcherData,
   selectData,
   radioData,
@@ -80,4 +85,5 @@ export {
   segmentedToggleMiniData,
   datePickerData,
   checkboxListData,
+  tagsInputData,
 }; 
