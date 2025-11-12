@@ -13,6 +13,7 @@ import { fontFamilySectionData } from './fontFamilySection';
 import { borderSectionData } from './borderSection';
 import { chooseProductData } from './chooseProduct';
 import { repeaterData } from './repeater';
+import { repeaterNewData } from './repeaterNew';
 import { designAccordionSectionData } from './designAccordionSection';
 import { columnsData } from './columns';
 import { segmentedToggleImageData } from './segmentedToggleImage';
@@ -53,8 +54,9 @@ export const componentData = [
   designAccordionSectionData,
   chooseProductData,
   repeaterData,
-  columnsData,
+  repeaterNewData,
   notiInfoData,
+  columnsData,
   ];
 
 // You can also export individual components
@@ -79,6 +81,7 @@ export {
   designAccordionSectionData,
   chooseProductData,
   repeaterData,
+  repeaterNewData,
   columnsData,
   segmentedToggleImageData,
   segmentedToggleTabsData,
