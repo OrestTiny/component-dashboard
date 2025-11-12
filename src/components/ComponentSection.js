@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const ComponentSection = ({ component, isLast }) => {
   const [tooltips, setTooltips] = useState({});
+  const [isParametersOpen, setIsParametersOpen] = useState(false);
 
   const copyCode = async (sectionId, code) => {
     try {
@@ -26,6 +27,8 @@ const ComponentSection = ({ component, isLast }) => {
       console.error('Failed to copy parameter:', err);
     }
   };
+
+  const parametersTableId = `${component.id}-parameters-table`;
 
   return (
     <section id={component.id} className={`component-section ${isLast ? 'last' : ''}`}>
@@ -101,42 +104,53 @@ const ComponentSection = ({ component, isLast }) => {
 
       {/* Parameters Table */}
       {component.parameters && component.parameters.length > 0 && (
-        <div className="parameters-section">
-          <div className="section-header">
-            <h3 className="section-title">Parameters</h3>
-          </div>
-          <div className="parameters-table-container">
-            <table className="parameters-table">
+        <div
+          className={`parameters-section ${isParametersOpen ? 'expanded' : 'collapsed'}`}
+        >
+          <button
+            type="button"
+            className="parameters-toggle"
+            onClick={() => setIsParametersOpen(prev => !prev)}
+            aria-expanded={isParametersOpen}
+            aria-controls={parametersTableId}
+          >
+            <span className="section-title">Parameters</span>
+            <span className="parameters-toggle-icon" aria-hidden="true" />
+          </button>
+          {isParametersOpen && (
+            <div className="parameters-table-container" id={parametersTableId}>
+              <table className="parameters-table">
               <thead>
                 <tr>
                   <th>Parameter</th>
                   <th>Description</th>
                 </tr>
               </thead>
-              <tbody>
-                {component.parameters.map((param, index) => (
-                  <tr key={index}>
-                    <td>
-                      <div className="param-name-container">
-                        <span className="param-name">{param.name} {'=> ""'}</span>
-                        <button
-                          className="param-copy-btn"
-                          onClick={() => copyParam(param.name + ' => ""')}
-                          title="Copy parameter name"
-                        >
-                          📋
-                          <div className={`param-tooltip ${tooltips[`param-${param.name} => ""`] ? 'visible' : ''}`}>
-                            ✓ Copied!
-                          </div>
-                        </button>
-                      </div>
-                    </td>
-                    <td className="param-description">{param.description}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                <tbody>
+                  {component.parameters.map((param, index) => (
+                    <tr key={index}>
+                      <td>
+                        <div className="param-name-container">
+                          <span className="param-name">{param.name} {'=> ""'}</span>
+                          <button
+                            className="param-copy-btn"
+                            onClick={() => copyParam(param.name + ' => ""')}
+                            title="Copy parameter name"
+                          >
+                            📋
+                            <div className={`param-tooltip ${tooltips[`param-${param.name} => ""`] ? 'visible' : ''}`}>
+                              ✓ Copied!
+                            </div>
+                          </button>
+                        </div>
+                      </td>
+                      <td className="param-description">{param.description}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       )}
     </section>
